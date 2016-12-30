@@ -1,26 +1,23 @@
 #!/usr/bin/python
-#coding=utf-8
-#文件名if01.py
+# -*- coding: UTF-8 -*-
 
-if True:
-      print "answer"
-      print "true"
-else:
-      print "false"
+import thread
+import time
 
-a=21
-b=22
-c=a+b
-print 'a+b=',c
-print c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c+c
-print a/b
-print a*b
-print a//b
-print a**b
-a=2
-b=3
-print a and b
-print a or b
-print not a
-print '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
-print a&b
+# 为线程定义一个函数
+def print_time( threadName, delay):
+   count = 0
+   while count < 5:
+      time.sleep(delay)
+      count += 1
+      print "%s: %s" % ( threadName, time.ctime(time.time()) )
+
+# 创建两个线程
+try:
+   thread.start_new_thread( print_time, ("Thread-1", 2, ) )
+   thread.start_new_thread( print_time, ("Thread-2", 4, ) )
+except:
+   print "Error: unable to start thread"
+
+while 1:
+   pass

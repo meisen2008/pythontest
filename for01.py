@@ -15,3 +15,5 @@ print range(9)
 arr = range(8)
 print len(arr)
 print len('kkk')
+
+print range(10,20)
